@@ -42,18 +42,6 @@ import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { getDatabase, ref, set } from 'firebase/database';
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 
-// Initialize Firebase
-const firebaseConfig = {
-  apiKey: "AIzaSyCEYX-KIn5suFReiFkSzVnDvTF7bX4Tx5c",
-  authDomain: "stories-b52db.firebaseapp.com",
-  databaseURL: "https://stories-b52db-default-rtdb.firebaseio.com",
-  projectId: "stories-b52db",
-  storageBucket: "stories-b52db.appspot.com",
-  messagingSenderId: "44786074125",
-  appId: "1:44786074125:web:e4270c43c7e5cdf8c3cb44",
-  measurementId: "G-KTZSEEPLC9"
-};
-
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getDatabase(app);
