@@ -158,3 +158,14 @@ export const deleteLandVerification = async (verificationId: string): Promise<vo
     throw error;
   }
 };
+
+// Add a default export for Expo Router
+export default {
+  saveLandVerificationData,
+  uploadImageToStorage,
+  checkIsRevenueAdmin,
+  getCurrentUserId,
+  getCurrentUserEmail,
+  fetchLandVerificationsByEmail,
+  deleteLandVerification
+};

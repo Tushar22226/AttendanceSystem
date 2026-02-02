@@ -66,7 +66,7 @@ export default function LandOwner() {
 
   useEffect(() => {
     if (searchQuery.trim()) {
-      const filtered = landOwners.filter(owner => 
+      const filtered = landOwners.filter(owner =>
         owner.surveyNumber.toLowerCase().includes(searchQuery.toLowerCase()) ||
         owner.ownerName.toLowerCase().includes(searchQuery.toLowerCase()) ||
         owner.propertyId.toLowerCase().includes(searchQuery.toLowerCase())
@@ -91,7 +91,7 @@ export default function LandOwner() {
           // Add an isCurrentOwner flag to help with rendering
           isCurrentOwner: data.ownershipStatus === true && data.transferStatus !== "completed"
         }));
-        
+
         // Include all owners (both current and previous)
         const allOwners = ownersArray.sort((a, b) => {
           // Sort by creation date (newest first)
@@ -99,7 +99,7 @@ export default function LandOwner() {
           const dateB = new Date(b.createdAt || 0).getTime();
           return dateB - dateA;
         });
-        
+
         setLandOwners(allOwners);
         setFilteredOwners(allOwners);
       } else {
@@ -118,16 +118,18 @@ export default function LandOwner() {
     try {
       const verificationRef = ref(database, `landVerifications/${record.verificationId}`);
       const snapshot = await get(verificationRef);
-      
+
       if (snapshot.exists()) {
         const verificationData = snapshot.val();
+        console.log('Verification Data:', verificationData);
+        // Where "record" is your LandOwnerRecord object
         navigation.navigate('LandOwnerDetails', {
-          landOwnerData: record, // Remove JSON.stringify
-          verificationData: {
+          landOwnerData: JSON.stringify(record), // Now a valid JSON string is passed
+          verificationData: JSON.stringify({
             id: record.verificationId,
-            ...verificationData
-          }
-        });
+            ...verificationData,
+          }),
+        });             
       } else {
         Alert.alert('Error', 'Verification details not found');
       }
@@ -182,7 +184,7 @@ export default function LandOwner() {
           )}
         </View>
 
-        <TouchableOpacity 
+        <TouchableOpacity
           style={styles.detailsButton}
           onPress={() => handleViewDetails(item)}
         >
@@ -215,8 +217,8 @@ export default function LandOwner() {
         <View style={styles.emptyContainer}>
           <Ionicons name="document-outline" size={64} color="#ccc" />
           <Text style={styles.emptyText}>
-            {searchQuery.trim() 
-              ? "No matching records found" 
+            {searchQuery.trim()
+              ? "No matching records found"
               : "No land owners registered yet"}
           </Text>
         </View>

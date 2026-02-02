@@ -5,15 +5,13 @@ import { getStorage } from "firebase/storage";
 import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCEYX-KIn5suFReiFkSzVnDvTF7bX4Tx5c",
-    authDomain: "stories-b52db.firebaseapp.com",
-    databaseURL: "https://stories-b52db-default-rtdb.firebaseio.com",
-    projectId: "stories-b52db",
-    storageBucket: "stories-b52db.appspot.com",
-    messagingSenderId: "44786074125",
-    appId: "1:44786074125:web:e4270c43c7e5cdf8c3cb44",
-    measurementId: "G-KTZSEEPLC9"
-  };
+    apiKey: "[GCP_API_KEY]",
+    authDomain: ".firebaseapp.com",
+    projectId: "-12345",
+    storageBucket: "-12345.firebasestorage.app",
+    messagingSenderId: "1234567890",
+    appId: "1:1234567890:web:1234567890"
+};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

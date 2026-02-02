@@ -1,14 +1,22 @@
-export type RootStackParamList = {
-  // ... other routes
-  DocumentUser: {
-    documentUrls: { [key: string]: string };
-    surveyNumber: string;
-    ownerName: string;
-    status: string;
+import React from 'react';
+import { View } from 'react-native';
+
+// Export your navigation types
+export type NavigationTypes = {
+  // Your navigation type definitions
+  Home: undefined;
+  LandOwner: undefined;
+  LandOwnerDetails: {
+    landOwnerData: string;
   };
-  DocumentPreview: {
-    documentUrl: string;
-    documentName: string;
-  };
-  DocumentManagement: undefined;
+  // Add other routes as needed
 };
+
+// Simple object as default export to satisfy Expo Router
+const navigationConfig = {
+  // You can add any navigation-related configuration here
+  version: '1.0.0',
+  routes: ['Home', 'LandOwner', 'LandOwnerDetails']
+};
+
+export default navigationConfig;

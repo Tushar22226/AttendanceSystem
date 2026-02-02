@@ -1,3 +1,6 @@
+import React from 'react';
+import { View } from 'react-native';
+
 // types.
 export interface LandRecord {
   id: string;
@@ -21,4 +24,7 @@ export interface LandRecord {
   applicantEmail?: string;
   isPreviousOwner?: boolean;
 }
-  
+
+// Add a default export for Expo Router
+export default null;
+

@@ -292,3 +292,8 @@ const calculateAspectRatioScore = (actual: number, expected: number): number => 
     return 0.1; // Very poor match
   }
 };
+
+// Add a default export for Expo Router
+export default {
+  verifyDocument
+};
